@@ -8,10 +8,10 @@ GLOBAL
   box-sizing: border-box;
 }
 :root {
-  --pr-color: rgb(27, 92, 27);
-  --sc-color: rgb(159, 255, 34);
+  --pr-color: rgb(27, 33, 92);
+  --sc-color: rgb(34, 167, 255);
   --sc-transparen: rgba(0, 0, 0, 0.199);
-  --sc-light: rgb(208, 247, 208);
+  --sc-light: rgb(208, 224, 247);
   --overlay-color: rgba(0, 0, 0, 0.503);
   --text-dark: rgb(0, 0, 0);
   --text-light: white;
@@ -40,7 +40,7 @@ UTITLITIES
   margin: 0 auto;
 }
 .card {
-  background: linear-gradient(90deg, var(--pr-color), rgb(60 165 60));
+  background: linear-gradient(90deg, var(--pr-color), rgb(71, 60, 165));
   border-radius: 3px;
   padding: 2rem 2rem 2rem 2rem;
 }
@@ -61,7 +61,7 @@ UTITLITIES
   margin-right: auto;
   margin-left: auto;
 }
-.hide{
+.hide {
   display: none !important;
 }
 .pr-heading {
@@ -550,6 +550,9 @@ footer i {
     grid-template-columns: 1fr;
     margin-top: 2rem;
   }
+  .our-team-card {
+    height: 280px;
+  }
   .our-team-card .team-heading-div {
     bottom: 0;
   }
@@ -576,5 +579,8 @@ footer i {
   }
   #banner p.lead {
     font-size: 1.2rem;
+  }
+  .our-team-card {
+    height: 200px;
   }
 }
