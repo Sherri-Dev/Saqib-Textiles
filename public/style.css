@@ -8,10 +8,10 @@ GLOBAL
   box-sizing: border-box;
 }
 :root {
-  --pr-color: rgb(27, 33, 92);
-  --sc-color: rgb(34, 167, 255);
+  --pr-color: rgb(27, 92, 27);
+  --sc-color: rgb(159, 255, 34);
   --sc-transparen: rgba(0, 0, 0, 0.199);
-  --sc-light: rgb(208, 224, 247);
+  --sc-light: rgb(208, 247, 208);
   --overlay-color: rgba(0, 0, 0, 0.503);
   --text-dark: rgb(0, 0, 0);
   --text-light: white;
