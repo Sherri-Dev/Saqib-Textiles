@@ -15,11 +15,13 @@ GLOBAL
   --overlay-color: rgba(0, 0, 0, 0.503);
   --text-dark: rgb(0, 0, 0);
   --text-light: white;
+  --top-margin: 3rem;
   /* Typography */
   --pr-heading: 5rem;
   --sc-heading: 4rem;
   --tr-heading: 2.5rem;
   --team-heading: 2rem;
+  --product-heading: 1.4rem;
   --para: 1.4rem;
   --main-font: "Montserrat";
   --sc-font: "Poppins";
@@ -98,6 +100,11 @@ UTITLITIES
 }
 .team-heading {
   font-size: var(--team-heading);
+  font-family: var(--main-font);
+  color: var(--sc-color);
+}
+.product-heading {
+  font-size: var(--product-heading);
   font-family: var(--main-font);
   color: var(--sc-color);
 }
@@ -249,7 +256,79 @@ section:nth-last-of-type(even) {
 #banner .container {
   height: 100%;
 }
-
+/*********
+ PRODUCTS
+**********/
+.product-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: var(--top-margin);
+}
+.product-card {
+  position: relative;
+  transition: all 1s ease-in;
+  height: 17rem;
+  overflow: clip;
+}
+.product-card:hover {
+  overflow: visible;
+}
+.product-card.card {
+  background: none;
+  padding: 0;
+}
+.product-card.card:hover {
+  background: linear-gradient(90deg, var(--pr-color), rgb(60 165 60));
+}
+.product-card img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 3px;
+  margin: auto;
+  transition: all 0.3s ease-in;
+  z-index: 2;
+  position: relative;
+}
+.product-card:hover img {
+  width: 70%;
+  height: auto;
+  border: 2px solid var(--sc-color);
+  transform: translateY(-1rem);
+  border-radius: none;
+  box-shadow: 0px -1px 10px 0px var(--overlay-color);
+}
+.product-card .content {
+  position: relative;
+  transform: translateY(-100%);
+  transition: all 0.3s 0.3s ease-in;
+  padding: 0 1rem 1rem 1rem;
+  opacity: 0;
+  z-index: 0;
+  border-radius: 3px;
+}
+.product-card:hover .content {
+  transform: translateY(-0.1rem);
+  top: auto;
+  left: auto;
+  opacity: 1;
+  background: linear-gradient(90deg, var(--pr-color), rgb(60 165 60));
+}
+.product-heading {
+  transition: color 0.3s ease-in;
+  margin-bottom: 0.3rem;
+  cursor: pointer;
+}
+.product-heading:hover {
+  color: var(--sc-light);
+}
+.product-card .price del {
+  color: var(--sc-light);
+}
+.product-card .price span {
+  color: var(--text-light);
+}
 /*****
 ABOUT
 ******/
@@ -260,7 +339,7 @@ ABOUT
 .about-content {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  margin-top: 3rem;
+  margin-top: var(--top-margin);
   gap: 1rem;
   height: 100%;
 }
@@ -297,7 +376,7 @@ OUR TEAM
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: var(--top-margin);
 }
 .our-team-card {
   height: 300px;
@@ -361,7 +440,7 @@ OUR TEAM
   gap: 3rem;
   padding: 2.5rem;
   justify-content: space-evenly;
-  margin-top: 3rem;
+  margin-top: var(--top-margin);
   z-index: 2;
 }
 .profile-container {
@@ -445,6 +524,9 @@ footer i {
   .our-team-container {
     grid-template-columns: repeat(3, 1fr);
   }
+  .product-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
   #future-plans article {
     flex-direction: column;
   }
@@ -473,6 +555,9 @@ footer i {
   .our-team-container {
     grid-template-columns: repeat(2, 1fr);
   }
+  .product-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 @media only screen and (max-width: 768px) {
   html {
@@ -495,6 +580,8 @@ footer i {
   :root {
     --sc-heading: 3rem;
     --para: 1.2rem;
+    --team-heading: 1.8rem;
+    --top-margin: 2rem;
   }
   html {
     font-size: 12px;
@@ -540,18 +627,39 @@ footer i {
   #banner {
     height: 350px;
   }
+  .product-container{
+    margin-top: 3rem;
+    grid-column-gap: 0.5rem;
+    grid-row-gap: 2rem;
+  }
+  .product-card.card {
+    height: auto;
+    background: linear-gradient(90deg, var(--pr-color), rgb(60 165 60));
+    overflow: visible;
+  }
+  .product-card img{
+    width: 70%;
+    height: auto;
+    border: 2px solid var(--sc-color);
+    transform: translateY(-1rem);
+    border-radius: none;
+    box-shadow: 0px -1px 10px 0px var(--overlay-color);
+  }
+  .product-card .content {
+    transform: translateY(-0.1rem);
+    top: auto;
+    left: auto;
+    opacity: 1;
+    background: linear-gradient(90deg, var(--pr-color), rgb(60 165 60));
+  }
   #about article {
     padding: 1.5rem 0 0 0;
   }
-  .about-content {
-    margin-top: 2rem;
-  }
   .our-team-container {
-    grid-template-columns: 1fr;
-    margin-top: 2rem;
+    gap: 0.5rem;
   }
   .our-team-card {
-    height: 280px;
+    height: 180px;
   }
   .our-team-card .team-heading-div {
     bottom: 0;
@@ -573,6 +681,7 @@ footer i {
 @media only screen and (max-width: 475px) {
   :root {
     --pr-heading: 3.3rem;
+    --team-heading: 1.6rem;
   }
   .profile-container {
     flex-direction: column;
@@ -581,6 +690,19 @@ footer i {
     font-size: 1.2rem;
   }
   .our-team-card {
-    height: 200px;
+    height: 180px;
+  }
+}
+@media only screen and (max-width: 340px) {
+  :root {
+    --team-heading: 2rem;
+  }
+  .product-container {
+    grid-template-columns: 1fr;
+  }
+  .our-team-container {
+    grid-template-columns: 1fr;
+    margin-top: 2rem;
+    padding: 0 2rem;
   }
 }
